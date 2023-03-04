@@ -1,6 +1,6 @@
 # Maintainer: Bernhard Landauer <bernhard@manjaro.org>
 # Maintainer: Philip Müller <philm[at]manjaro[dot]org>
-# Arch credits:
+# Archlinux credits:
 # Maintainer: Lukas Fleischer <archlinux at cryptocrack dot de>
 # Contributor: xduugu
 # Contributor: nh2
@@ -11,13 +11,13 @@
 # Contributor: Ignas Anikevicius <anikevicius ð gmail đ com>
 
 _linuxprefix=linux-xanmod-lts
-_extraver=extramodules-5.15-MANJARO
+_extraver=extramodules-6.1-MANJARO
 _pkgname=tp_smapi
-_kernver=$(find /usr/lib/modules -type d -iname 5.15.95*xanmod* | rev | cut -d "/" -f1 | rev)
-_extramodules=$(find /usr/lib/modules -type d -iname 5.15.95*xanmod* | rev | cut -d "/" -f1 | rev)
+_kernver=$(find /usr/lib/modules -type d -iname 6.1.15*xanmod* | rev | cut -d "/" -f1 | rev)
+_extramodules=$(find /usr/lib/modules -type d -iname 6.1.15*xanmod* | rev | cut -d "/" -f1 | rev)
 pkgname=$_linuxprefix-tp_smapi
 pkgver=0.43
-pkgrel=515951
+pkgrel=61151
 pkgdesc="Modules for ThinkPad's SMAPI functionality"
 arch=('x86_64')
 url='https://github.com/evgeni/tp_smapi'
@@ -40,7 +40,7 @@ build() {
 
   # https://bugs.archlinux.org/task/54975 (kernel has no _GLOBAL_OFFSET_TABLE_):
   # Clear EXTRA_CFLAGS since it defaults to injecting CFLAGS and -fno-plt breaks the modules
-  make HDAPS=1 KVER="$(find /usr/lib/modules -type d -iname 5.15.95*xanmod* | rev | cut -d "/" -f1 | rev)" EXTRA_CFLAGS=
+  make HDAPS=1 KVER="$(find /usr/lib/modules -type d -iname 6.1.15*xanmod* | rev | cut -d "/" -f1 | rev)" EXTRA_CFLAGS=
 }
 
 package() {
