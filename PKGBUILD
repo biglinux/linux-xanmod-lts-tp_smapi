@@ -36,6 +36,7 @@ pkgver() {
 }
 
 build() {
+  _kernver="$(cat /usr/src/${_linuxprefix}/version)"
   cd $_pkgname
 
   # https://bugs.archlinux.org/task/54975 (kernel has no _GLOBAL_OFFSET_TABLE_):
